@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: pleng-arai-na
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install --global pnpm@10.4.1 && pnpm install --frozen-lockfile && pnpm build
+    startCommand: pnpm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production

@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@plugin 'tailwindcss-animate';
+
+:root {
+  --background: 66 24% 97%;
+  --foreground: 140 9% 14%;
+  --card: 0 0% 100%;
+  --card-foreground: 140 9% 14%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 140 9% 14%;
+  --primary: 38 68% 57%;
+  --primary-foreground: 200 20% 15%;
+  --secondary: 85 25% 92%;
+  --secondary-foreground: 140 18% 20%;
+  --muted: 80 18% 93%;
+  --muted-foreground: 132 8% 46%;
+  --accent: 80 45% 89%;
+  --accent-foreground: 140 28% 12%;
+  --border: 60 12% 84%;
+  --input: 60 12% 84%;
+  --ring: 38 68% 57%;
+  --radius: .75rem;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #eff0e6; color: #1e2a32; font-family: 'Noto Sans Thai', sans-serif; -webkit-font-smoothing: antialiased; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+mark { border-radius: .2rem; background: #f3d48a; color: #3b2a06; padding: 0 .1rem; }
+::selection { background: #f3d48a; color: #1e2a32; }
+.container { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: 1.25rem; }
+@media (min-width: 768px) { .container { padding-inline: 2rem; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  a, button, article { transition: transform .18s cubic-bezier(.23,1,.32,1), background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease; }
+  button:active { transform: scale(.97); }
+}

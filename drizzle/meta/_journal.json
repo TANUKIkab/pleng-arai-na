@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1790168724534,
+      "tag": "0000_productive_thunderbird",
+      "breakpoints": true
+    }
+  ]
+}

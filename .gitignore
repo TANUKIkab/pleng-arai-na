@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+.manus-logs/
+.manus/
+.project-config.json
+client/public/__manus__/
