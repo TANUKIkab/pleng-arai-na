@@ -130,6 +130,14 @@ let embeddingStatus: 'not_loaded' | 'loading' | 'ready' | 'fallback' = 'not_load
 let documentEmbeddingsPromise: Promise<Map<number, number[]> | null> | null = null;
 
 async function getExtractor() {
+  if (process.env.ENABLE_EMBEDDINGS !== 'true') {
+    // Render free tier only has 512MB RAM; the quantized multilingual MiniLM model
+    // plus its runtime can exceed that under load and crash-loop the container,
+    // which looks like "every search hangs forever" to users. Default OFF here;
+    // set ENABLE_EMBEDDINGS=true on a host with more headroom to use real embeddings.
+    embeddingStatus = 'fallback';
+    return null;
+  }
   if (!extractorPromise) {
     embeddingStatus = 'loading';
     extractorPromise = pipeline('feature-extraction', 'Xenova/paraphrase-multilingual-MiniLM-L12-v2', { dtype: 'q8' })

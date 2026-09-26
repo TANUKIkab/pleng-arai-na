@@ -14,6 +14,16 @@
 
 > อย่าอัปโหลดไฟล์ `.env`, รหัสผ่าน, API key หรือ token ขึ้น GitHub. โปรเจกต์นี้ไม่มี `.env` ที่จำเป็นสำหรับหน้าค้นหาเพลง/สถิติพื้นฐาน
 
+## เกี่ยวกับโหมด "ค้นตามอารมณ์" (semantic search)
+
+โดยดีฟอลต์ โหมดนี้ใช้ตัวคำนวณ fallback แบบเบา (ไม่โหลดโมเดล AI) เพื่อให้ทำงานได้ลื่นบน Render Free ที่มี RAM แค่ 512MB — โมเดล embeddings จริง (`Xenova/paraphrase-multilingual-MiniLM-L12-v2`) กินหน่วยความจำเกินขนาดนี้ได้ง่ายจนทำให้ service รีสตาร์ทวนซ้ำ (อาการ: ค้นช้ามากทุกครั้ง ไม่ใช่แค่ครั้งแรก)
+
+ถ้าอัปเกรดไปแผนที่มี RAM มากขึ้น (เช่น Starter ขึ้นไป) แล้วอยากใช้โมเดล AI จริง ให้เพิ่ม environment variable ใน Render Dashboard:
+
+```
+ENABLE_EMBEDDINGS=true
+```
+
 ## ขั้นตอนที่ 1 — อัปโหลดโค้ดขึ้น GitHub
 
 1. แตกไฟล์ ZIP ลงในเครื่อง แล้วเปิด Terminal/PowerShell ในโฟลเดอร์ `pleng-arai-na` (โฟลเดอร์ที่มี `package.json` และ `render.yaml`)
