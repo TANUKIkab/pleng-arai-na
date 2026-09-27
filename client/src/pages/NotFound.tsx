@@ -1,52 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
-import { useLocation } from "wouter";
+import { ArrowLeft, Radio } from 'lucide-react';
+import { Link } from 'wouter';
+import { AppFooter, AppHeader } from '@/components/AppChrome';
 
 export default function NotFound() {
-  const [, setLocation] = useLocation();
-
-  const handleGoHome = () => {
-    setLocation("/");
-  };
-
-  return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
-            </div>
-          </div>
-
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
-
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
-            Page Not Found
-          </h2>
-
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
-            <br />
-            It may have been moved or deleted.
-          </p>
-
-          <div
-            id="not-found-button-group"
-            className="flex flex-col sm:flex-row gap-3 justify-center"
-          >
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
+  return <div className="flex min-h-screen flex-col bg-[#080d14] text-white"><AppHeader /><main className="container flex flex-1 items-center justify-center py-16"><section className="relative w-full max-w-xl overflow-hidden rounded-3xl border border-white/10 bg-[#101823] p-8 text-center shadow-2xl sm:p-12"><div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(220,174,88,.13),transparent_55%)]" /><div className="relative"><div className="mx-auto grid size-16 place-items-center rounded-2xl border border-[#dcae58]/25 bg-[#dcae58]/10 text-[#edc675]"><Radio size={25} /></div><p className="mt-6 font-mono text-xs tracking-[.3em] text-[#edc675]">SIGNAL NOT FOUND</p><h1 className="mt-3 text-6xl font-semibold tracking-tight text-white">404</h1><h2 className="mt-3 text-xl font-medium text-slate-200" style={{ fontFamily: 'Taviraj, serif' }}>หน้านี้อยู่นอกคลื่นที่ค้นหา</h2><p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-slate-400">ลิงก์อาจเปลี่ยนไปแล้ว กลับไปหน้าค้นหาเพื่อเริ่มตามหาเพลงอีกครั้ง</p><Link href="/" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#e0ae55] px-5 py-3 text-sm font-semibold text-[#17130c] transition hover:bg-[#f0c979]"><ArrowLeft size={15} />กลับไปค้นหาเพลง</Link></div></section></main><AppFooter /></div>;
 }
